@@ -4,10 +4,10 @@ import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
-//   const { data: session }: any = useSession();
+  const { data: session }: any = useSession();
   return (
     <div>
-      <ul className="flex justify-between m-10 item-center">
+      <ul className="flex text-black justify-between m-10 item-center">
         <div>
           <Link href="/">
             <li>Home</li>
@@ -17,7 +17,7 @@ const Navbar = () => {
           <Link href="/dashboard">
             <li>Dashboard</li>
           </Link>
-          {/* {!session ? ( */}
+          {!session ? (
             <>
               <Link href="/login">
                 <li>Login</li>
@@ -26,9 +26,9 @@ const Navbar = () => {
                 <li>Register</li>
               </Link>
             </>
-          {/* ) : ( */}
+          ) : (
             <>
-              {/* {session.user?.email} */}
+              {session.user?.email}
               <li>
                 <button
                   onClick={() => {
@@ -40,7 +40,7 @@ const Navbar = () => {
                 </button>
               </li>
             </>
-          {/* )} */}
+          )}
         </div>
       </ul>
     </div>
